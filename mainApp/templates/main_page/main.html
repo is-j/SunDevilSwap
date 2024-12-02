@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunDevilSwap - Marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- NAV-->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">SunDevilSwap</a>
+            </div>
+            <div class="search-bar">
+                <form method="GET" action="/search/">
+                    <input type="text" name="query" placeholder="Search for items..." />
+                </form>
+            </div>
+            <div class="nav-links">
+                <a href="/sell/">Sell now</a>
+                <a href="/login/">Log in</a>
+                <a href="/signup/">Sign up</a>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Buy for less. Sell for free. Keep the marketplace local.</h1>
+            <p>Join SunDevilSwap and connect with ASU students to trade, buy, and sell items with ease.</p>
+            <div class="hero-buttons">
+                <a href="/clothes/" class="btn">Clothes</a>
+                <a href="/labequipment/" class="btn">Lab Equipment</a>
+            </div>
+        </div>
+    </section>
+
+    <!--CATS-->
+    <section class="categories">
+        <h2>Shop by Categories</h2>
+        <div class="category-cards">
+            <div class="category-card">
+                <a href="/clothes/">
+                    <img src="{% static 'images/clothes.jpg' %}" alt="Clothes">
+                    <h3>Clothes</h3>
+                </a>
+            </div>
+            <div class="category-card">
+                <a href="/labequipment/">
+                    <img src="{% static 'images/labequipment.jpg' %}" alt="Lab Equipment">
+                    <h3>Lab Equipment</h3>
+                </a>
+            </div>
+            <div class="category-card">
+                <a href="/textbooks/">
+                    <img src="{% static 'images/textbooks.jpg' %}" alt="Textbooks">
+                    <h3>Textbooks</h3>
+                </a>
+            </div>
+            <div class="category-card">
+                <a href="/gifts/">
+                    <img src="{% static 'images/gifts.jpg' %}" alt="Gifts">
+                    <h3>Gifts</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--FOOTER-->
+    <footer>
+        <p>&copy; 2024 SunDevilSwap - An ASU Marketplace</p>
+        <div class="footer-links">
+            <a href="/about/">About Us</a>
+            <a href="/contact/">Contact</a>
+            <a href="/privacy/">Privacy Policy</a>
+        </div>
+    </footer>
+</body>
+</html>
