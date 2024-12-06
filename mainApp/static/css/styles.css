@@ -173,3 +173,82 @@ footer p {
 .footer-links a:hover {
     color: #FFD75E;
 }
+
+
+/******************LOGIN FORM******************/
+.login-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #8C1D40; /* ASU Maroon */
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.login-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.login-container input:focus {
+    border-color: #8C1D40; /* ASU Maroon */
+    outline: none;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #8C1D40; /* ASU Maroon */
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #A42A51; /* Slightly lighter maroon */
+}
+
+.login-container p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.login-container p a {
+    color: #8C1D40; /* ASU Maroon */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-container p a:hover {
+    color: #A42A51;
+}
