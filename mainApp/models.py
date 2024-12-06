@@ -7,17 +7,20 @@ from django.db import models
 
 # Tables: User, Main, Filter, Cart, Profile, Login, Item
 
-class User(models.Model):
-    userID = models.AutoField(primary_key=True)
-    email = models.EmailField(unique=True, max_length=255)
-    password = models.CharField(max_length=255)
+
+from django.contrib.auth.models import User
+
 
 class Profile(models.Model):
-    user  = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='profile')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='profile')
     logout = models.BooleanField(default=False)
     address = models.CharField(max_length=255, blank=True, null=True)
     phone = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.user.username}'s Profile"
+
 
 class Item(models.Model):
     itemID = models.AutoField(primary_key=True)
@@ -29,6 +32,10 @@ class Item(models.Model):
     condition = models.CharField(max_length=100, choices=[('New', 'New'), ('Used', 'Used')])
     image = models.TextField(blank=True, null=True)
 
+    def __str__(self):
+        return f"Item {self.itemID}: {self.description[:20]}"
+
+
 class Filter(models.Model):
     item = models.OneToOneField(Item, on_delete=models.CASCADE, related_name='filter')
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -36,20 +43,28 @@ class Filter(models.Model):
     equip = models.BooleanField(default=False)
     condition = models.CharField(max_length=100, choices=[('New', 'New'), ('Used', 'Used')])
 
+    def __str__(self):
+        return f"Filter for Item {self.item.itemID}"
+
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cart_items')
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='cart_entries')
     image = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    payment = models.CharField(max_length=255, choices=[ ('Completed', 'Completed'), ('NoPayment', 'NoPayment')])
+    payment = models.CharField(max_length=255, choices=[('Completed', 'Completed'), ('NoPayment', 'NoPayment')])
+
+    def __str__(self):
+        return f"Cart Entry: User {self.user.username} - Item {self.item.itemID}"
+
 
 class Login(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='login')
     email = models.EmailField(max_length=255)
     password = models.CharField(max_length=255)
 
-
+    def __str__(self):
+        return f"Login for {self.user.username}"
 
 
 '''

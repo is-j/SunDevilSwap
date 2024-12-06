@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunDevilSwap - Buy Now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/buy_styles.css' %}">
+</head>
+<body>
+    <!-- NAV -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">SunDevilSwap</a>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/sell/">Sell Now</a>
+                <a href="/buy/">Buy Now</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- FILTER AND SEARCH -->
+    <section class="filter-section">
+        <h1>Buy Items</h1>
+        <form method="GET" action="/buy/" class="filter-form">
+            <input type="text" name="query" placeholder="Search items..." value="{{ request.GET.query }}">
+            <select name="category">
+                <option value="">All Categories</option>
+                <option value="Clothes" {% if request.GET.category == "Clothes" %}selected{% endif %}>Clothes</option>
+                <option value="Lab Equipment" {% if request.GET.category == "Lab Equipment" %}selected{% endif %}>Lab Equipment</option>
+                <option value="Textbooks" {% if request.GET.category == "Textbooks" %}selected{% endif %}>Textbooks</option>
+            </select>
+            <select name="condition">
+                <option value="">Any Condition</option>
+                <option value="New" {% if request.GET.condition == "New" %}selected{% endif %}>New</option>
+                <option value="Used" {% if request.GET.condition == "Used" %}selected{% endif %}>Used</option>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+    </section>
+
+    <!-- ITEMS LIST -->
+    <section class="items-list">
+        {% if items %}
+            <div class="items-grid">
+                {% for item in items %}
+                <div class="item-card">
+                    <img src="{{ item.image }}" alt="{{ item.description }}" class="item-image">
+                    <h3>{{ item.description }}</h3>
+                    <p>Price: ${{ item.price }}</p>
+                    <p>Condition: {{ item.condition }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No items match your search criteria.</p>
+        {% endif %}
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 SunDevilSwap - An ASU Marketplace</p>
+        <div class="footer-links">
+            <a href="/about/">About Us</a>
+            <a href="/contact/">Contact</a>
+            <a href="/privacy/">Privacy Policy</a>
+        </div>
+    </footer>
+</body>
+</html>

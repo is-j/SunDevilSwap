@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #F9F6EF;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.welcome-container {
+    max-width: 600px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.welcome-container h1 {
+    font-size: 2.5rem;
+    color: #8C1D40; /* ASU Maroon */
+    margin-bottom: 10px;
+}
+
+.welcome-container h1 span {
+    color: #FFC627; /* ASU Gold */
+}
+
+.welcome-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.action-buttons .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #8C1D40; /* ASU Maroon */
+    transition: background-color 0.3s ease;
+}
+
+.action-buttons .btn:hover {
+    background-color: #A42A51;
+}
+
+.action-buttons .btn-secondary {
+    background-color: #FFC627; /* ASU Gold */
+    color: #8C1D40; /* ASU Maroon */
+}
+
+.action-buttons .btn-secondary:hover {
+    background-color: #FFD75E;
+    color: #8C1D40;
+}

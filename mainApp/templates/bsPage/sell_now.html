@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SunDevilSwap - Sell Now</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sell_styles.css' %}">
 </head>
 <body>
     <!-- NAV -->
@@ -17,9 +17,8 @@
             </div>
             <div class="nav-links">
                 <a href="/">Home</a>
-                <a href="/buy/">Buy now</a>
-                <a href="/login/">Log in</a>
-                <a href="/signup/">Sign up</a>
+                <a href="/buy/">Buy Now</a>
+                <a href="/sell/">Sell Now</a>
             </div>
         </nav>
     </header>
@@ -43,8 +42,17 @@
                 <input type="number" id="item-price" name="item_price" placeholder="Enter price" required>
             </div>
             <div class="form-group">
+                <label for="item-category">Category:</label>
+                <select id="item-category" name="item_category" required>
+                    <option value="clothes">Clothes</option>
+                    <option value="lab_equipment">Lab Equipment</option>
+                    <option value="textbooks">Textbooks</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="item-image">Upload Image:</label>
-                <input type="file" id="item-image" name="item_image" accept="image/*" required>
+                <input type="file" id="item-image" name="item_image" accept="image/*">
             </div>
             <button type="submit" class="btn">Submit</button>
         </form>
@@ -54,9 +62,9 @@
     <footer>
         <p>&copy; 2024 SunDevilSwap - An ASU Marketplace</p>
         <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/buy/">Buy Now</a>
             <a href="/about/">About Us</a>
-            <a href="/contact/">Contact</a>
-            <a href="/privacy/">Privacy Policy</a>
         </div>
     </footer>
 </body>

@@ -1,0 +1,134 @@
+/* sell.css */
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #F9F6EF;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #8C1D40;
+    color: #fff;
+    border-bottom: 3px solid #FFC627;
+}
+
+.navbar .logo a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FFC627;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar .logo a:hover {
+    color: #FFD75E;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    color: #FFC627;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #FFC627;
+    color: #8C1D40;
+}
+
+.sell-now-section {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.sell-now-section h1 {
+    color: #8C1D40;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.sell-now-section p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+form .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form .form-group input,
+form .form-group textarea,
+form .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form .form-group textarea {
+    resize: vertical;
+}
+
+form .form-group input:focus,
+form .form-group textarea:focus,
+form .form-group select:focus {
+    border-color: #8C1D40;
+    outline: none;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #8C1D40;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #A42A51;
+}
+
+footer {
+    background-color: #8C1D40;
+    color: #FFC627;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+footer a {
+    color: #FFC627;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: #FFD75E;
+}

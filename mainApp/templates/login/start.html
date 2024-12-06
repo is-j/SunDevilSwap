@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to SunDevilSwap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/start_styles.css' %}">
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Welcome to <span>SunDevilSwap</span></h1>
+        <p>The best marketplace for ASU students to buy, sell, and trade items locally.</p>
+        <div class="action-buttons">
+            <a href="/login/" class="btn">Log In</a>
+            <a href="/signup/" class="btn btn-secondary">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>
