@@ -13,7 +13,6 @@ from mainApp.models import Item
 def index(request):
     featured_items = Item.objects.all()[:8]  
     return render(request, "main_page/main.html", {"featured_items": featured_items})
-
 def login_view(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -44,10 +43,4 @@ def signUp_view(request):
         Profile.objects.create(user=user)  # Create profile for the user
         messages.success(request, 'Account created successfully.')
         return redirect('login')
-    return render(request, 'login/signup.html')
-
-def home(request):
-    return render(request, 'main/home.html')
-
-def sell(request):
-    return render(request, 'bsPage/sell_now.html')
+    return render(request, 'login/sign_up.html')
