@@ -21,9 +21,10 @@
                 </form>
             </div>
             <div class="nav-links">
-                <a href="/sell/">Sell now</a>
+                <a href="{% url 'sell_now' %}" class="btn">Sell Now</a>
                 <a href="/login/">Log in</a>
                 <a href="/signup/">Sign up</a>
+            </div>            
             </div>
         </nav>
     </header>
@@ -32,7 +33,7 @@
             <h1>Buy for less. Sell for free. Keep the marketplace local.</h1>
             <p>Join SunDevilSwap and connect with ASU students to trade, buy, and sell items with ease.</p>
             <div class="hero-buttons">
-                <a href="/clothes/" class="btn">Clothes</a>
+                <a href="{% url 'clothes' %}" class="btn">Clothes</a>
                 <a href="/labequipment/" class="btn">Lab Equipment</a>
             </div>
         </div>
@@ -43,7 +44,7 @@
         <h2>Shop by Categories</h2>
         <div class="category-cards">
             <div class="category-card">
-                <a href="/clothes/">
+                <a href="{% url 'clothes' %}" class="btn">
                     <img src="{% static 'images/clothes.jpg' %}" alt="Clothes">
                     <h3>Clothes</h3>
                 </a>

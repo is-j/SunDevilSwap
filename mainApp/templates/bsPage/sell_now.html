@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunDevilSwap - Sell Now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- NAV -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">SunDevilSwap</a>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/buy/">Buy now</a>
+                <a href="/login/">Log in</a>
+                <a href="/signup/">Sign up</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SELLER FORM -->
+    <section class="sell-now-section">
+        <h1>Sell Your Items</h1>
+        <p>Fill out the form below to list your item for sale:</p>
+        <form method="POST" action="/sell/" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="item-name">Item Name:</label>
+                <input type="text" id="item-name" name="item_name" placeholder="Enter item name" required>
+            </div>
+            <div class="form-group">
+                <label for="item-description">Description:</label>
+                <textarea id="item-description" name="item_description" placeholder="Enter a description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="item-price">Price:</label>
+                <input type="number" id="item-price" name="item_price" placeholder="Enter price" required>
+            </div>
+            <div class="form-group">
+                <label for="item-image">Upload Image:</label>
+                <input type="file" id="item-image" name="item_image" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 SunDevilSwap - An ASU Marketplace</p>
+        <div class="footer-links">
+            <a href="/about/">About Us</a>
+            <a href="/contact/">Contact</a>
+            <a href="/privacy/">Privacy Policy</a>
+        </div>
+    </footer>
+</body>
+</html>
