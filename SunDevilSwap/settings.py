@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'SunDevilSwap',
+        'NAME': 'sundevilswap',
 
         'USER': 'postgres',
 
