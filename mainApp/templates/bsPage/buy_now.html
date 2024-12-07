@@ -50,7 +50,7 @@
             {% for item in items %}
             <div class="item-card">
                 <a href="{% url 'item_detail' item.itemID %}">
-                    <img src="{{ item.image }}" alt="{{ item.description }}" class="item-image">
+                    <!-- <img src="{{ item.image }}" alt="{{ item.description }}" class="item-image"> -->
                     <h3>{{ item.description }}</h3>
                     <p>Price: ${{ item.price }}</p>
                     <p>Condition: {{ item.condition }}</p>
