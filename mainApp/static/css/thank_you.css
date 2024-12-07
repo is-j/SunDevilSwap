@@ -79,3 +79,11 @@ body {
 .thank-you .btn:hover {
     background-color: #A42A51; /* Slightly lighter maroon */
 }
+
+footer {
+    background-color: #f8f8f8; /* Optional styling */
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+}
