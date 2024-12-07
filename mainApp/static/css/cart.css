@@ -1,0 +1,130 @@
+/* cart.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F9F6EF;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #8C1D40; /* ASU Maroon */
+    margin-top: 20px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #8C1D40; /* ASU Maroon */
+    color: #fff;
+}
+
+.navbar .logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #FFC627; /* ASU Gold */
+    text-decoration: none;
+}
+
+.navbar .nav-links a {
+    margin-left: 20px;
+    color: #FFC627; /* ASU Gold */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar .nav-links a:hover {
+    color: #FFD75E;
+}
+
+/* Cart Section */
+.cart-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cart-section p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+.cart-section h1 {
+    margin-bottom: 20px;
+}
+
+/* Table */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.cart-table th,
+.cart-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.cart-table th {
+    background-color: #8C1D40; /* ASU Maroon */
+    color: #fff;
+    font-weight: bold;
+}
+
+.cart-table tr:nth-child(even) {
+    background-color: #F9F6EF;
+}
+
+.cart-table tr:hover {
+    background-color: #FFD75E;
+}
+
+/* Total Price */
+.cart-section p strong {
+    color: #8C1D40; /* ASU Maroon */
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #8C1D40; /* ASU Maroon */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #A42A51;
+}
+
+.pay-now {
+    background-color: #8C1D40;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pay-now:hover {
+    background-color: #A42A51;
+}
+

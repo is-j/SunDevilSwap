@@ -46,16 +46,18 @@
     <!-- ITEMS LIST -->
     <section class="items-list">
         {% if items %}
-            <div class="items-grid">
-                {% for item in items %}
-                <div class="item-card">
+        <div class="items-grid">
+            {% for item in items %}
+            <div class="item-card">
+                <a href="{% url 'item_detail' item.itemID %}">
                     <img src="{{ item.image }}" alt="{{ item.description }}" class="item-image">
                     <h3>{{ item.description }}</h3>
                     <p>Price: ${{ item.price }}</p>
                     <p>Condition: {{ item.condition }}</p>
-                </div>
-                {% endfor %}
+                </a>
             </div>
+            {% endfor %}
+        </div>
         {% else %}
             <p>No items match your search criteria.</p>
         {% endif %}

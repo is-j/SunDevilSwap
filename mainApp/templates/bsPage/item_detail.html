@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ item.description }} - SunDevilSwap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- NAV -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">SunDevilSwap</a>
+            </div>
+            <div class="nav-links">
+                <a href="/sell/">Sell Now</a>
+                <a href="/buy/">Buy Now</a>
+                <a href="/cart/">Cart</a>
+                <a href="/logout/">Log Out</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ITEM DETAILS -->
+    <section class="item-details">
+        <div class="container">
+            <img src="{{ item.image }}" alt="{{ item.description }}" class="item-image-large">
+            <h1>{{ item.description }}</h1>
+            <p><strong>Price:</strong> ${{ item.price }}</p>
+            <p><strong>Condition:</strong> {{ item.condition }}</p>
+            <form method="POST" action="{% url 'add_to_cart' item.itemID %}">
+                {% csrf_token %}
+                <button type="submit" class="btn add-to-cart">Add to Cart</button>
+            </form>            
+        </div>
+    </section>
+    
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 SunDevilSwap - An ASU Marketplace</p>
+    </footer>
+</body>
+</html>

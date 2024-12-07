@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - SunDevilSwap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/thank_you.css' %}">
+</head>
+<body>
+    <!-- NAV -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">SunDevilSwap</a>
+            </div>
+            <div class="nav-links">
+                <a href="/buy/">Buy More</a>
+                <a href="/sell/">Sell Now</a>
+                <a href="/logout/">Log Out</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- THANK YOU MESSAGE -->
+    <section class="thank-you">
+        <div class="container">
+            <h1>Thank You HUZZ for Your Purchase!</h1>
+            <p>Your order has been successfully placed. We appreciate your business!</p>
+            <a href="/buy/" class="btn">Continue Shopping</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 SunDevilSwap - An ASU Marketplace</p>
+    </footer>
+</body>
+</html>

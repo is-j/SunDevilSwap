@@ -52,6 +52,7 @@ class Cart(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='cart_entries')
     image = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=1)
     payment = models.CharField(max_length=255, choices=[('Completed', 'Completed'), ('NoPayment', 'NoPayment')])
 
     def __str__(self):

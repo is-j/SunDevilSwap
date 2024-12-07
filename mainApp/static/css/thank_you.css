@@ -1,0 +1,81 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #F9F6EF; /* Light beige background */
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #8C1D40; /* ASU Maroon */
+    color: #FFC627; /* ASU Gold */
+    border-bottom: 3px solid #FFC627; 
+}
+
+.navbar .logo a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FFC627; 
+    text-decoration: none;
+}
+
+.navbar .nav-links a {
+    margin-left: 20px;
+    color: #FFC627;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.navbar .nav-links a:hover {
+    color: #8C1D40; 
+    background-color: #FFC627;
+}
+
+/* Thank You Section */
+.thank-you {
+    text-align: center;
+    padding: 50px 20px;
+    margin: 100px auto;
+    background-color: #FFFFFF;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.thank-you h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #8C1D40; /* ASU Maroon */
+    margin-bottom: 20px;
+}
+
+.thank-you p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.thank-you .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #8C1D40; /* ASU Maroon */
+    transition: background-color 0.3s ease;
+}
+
+.thank-you .btn:hover {
+    background-color: #A42A51; /* Slightly lighter maroon */
+}

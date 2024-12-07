@@ -1,0 +1,127 @@
+/* item_detail.css */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F9F6EF;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #8C1D40;
+    color: #fff;
+}
+
+.navbar .logo a,
+.navbar .nav-links a {
+    color: #FFC627;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.navbar .nav-links a:hover {
+    color: #FFD75E;
+}
+
+.item-details {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-details .container {
+    text-align: center;
+}
+
+.item-image-large {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.item-details h1 {
+    font-size: 2.5rem;
+    color: #8C1D40;
+    margin-bottom: 10px;
+}
+
+.item-details p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #8C1D40;
+    color: #FFC627;
+    margin-top: 40px;
+}
+.item-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details-container {
+    display: flex;
+    gap: 30px;
+}
+
+.item-image-container {
+    flex: 1;
+    text-align: center;
+}
+
+.item-image-large {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.item-info h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #8C1D40; /* ASU Maroon */
+}
+
+.item-info p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.btn.add-to-cart {
+    background-color: #8C1D40;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn.add-to-cart:hover {
+    background-color: #A42A51;
+}

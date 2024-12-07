@@ -1,11 +1,13 @@
 
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from .models import Profile
 from django.contrib import messages
-from mainApp.models import Item
+from mainApp.models import Item, Cart
+from django.db.models import Sum
 
 # Create your views here.
 def start(request):
@@ -113,3 +115,85 @@ def buy_now(request):
         items = items.filter(description__icontains=search_query)
 
     return render(request, 'bsPage/buy_now.html', {'items': items})
+def item_detail_view(request, item_id):
+    item = get_object_or_404(Item, itemID=item_id)
+    return render(request, "bsPage/item_detail.html", {"item": item})
+@login_required
+
+def add_to_cart(request, item_id):
+    if request.method == "POST":
+
+        item = get_object_or_404(Item, itemID=item_id)
+        
+        user = request.user
+
+        cart_item, created = Cart.objects.get_or_create(user=user, item=item, defaults={
+            'image': item.image,
+            'price': item.price,
+            'payment': 'NoPayment',
+            'quantity': 1,
+        })
+
+        if not created:
+
+            cart_item.quantity += 1
+            cart_item.save()
+
+        return redirect('cart_detail')  #
+
+
+@login_required
+def cart_view(request):
+    cart_items = Cart.objects.filter(user=request.user)
+    total_price = sum(item.price * item.quantity for item in cart_items)  # Use quantity for total
+    return render(request, 'bsPage/cart.html', {'cart_items': cart_items, 'total_price': total_price})
+
+
+def buy_now(request):
+    category = request.GET.get('category')
+    condition = request.GET.get('condition')
+    search_query = request.GET.get('query')
+    items = Item.objects.all()
+    if category:
+        if category == "Clothes":
+            items = items.filter(cloth=True)
+        elif category == "Lab Equipment":
+            items = items.filter(equip=True)
+        elif category == "Textbooks":
+            items = items.filter(text=True)
+    if condition:
+        items = items.filter(condition=condition)
+    if search_query:
+        items = items.filter(description__icontains=search_query)
+
+    # Exclude items that are already purchased
+    items = items.exclude(cart_entries__payment="Completed")
+
+    return render(request, 'bsPage/buy_now.html', {'items': items})
+
+@login_required
+def process_payment(request):
+    if request.method == 'POST':
+        # Fetch cart items for the user
+        cart_items = Cart.objects.filter(user=request.user)
+        total_price = cart_items.aggregate(total=Sum('price'))['total']
+
+        payment_successful = True  # Simulate a successful payment
+        if payment_successful:
+            # Mark items as paid and remove them from the cart
+            for cart_item in cart_items:
+                cart_item.payment = 'Completed'
+                cart_item.save()
+                # Remove item from the selling list
+                cart_item.item.delete()
+
+            # Clear the user's cart
+            cart_items.delete()
+            messages.success(request, "Payment successful!")
+            return redirect('thank_you')  # Redirect to the thank-you page
+        else:
+            messages.error(request, "Payment failed. Please try again.")
+            return redirect('cart_detail')
+
+def thank_you(request):
+    return render(request, 'bsPage/thank_you.html')
