@@ -32,7 +32,6 @@
                         <th>Item</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +40,6 @@
                         <td>{{ cart_item.item.description }}</td>
                         <td>${{ cart_item.price }}</td>
                         <td>{{ cart_item.quantity }}</td>
-                        <td>${{ cart_item.price|floatformat:2|add:cart_item.quantity }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

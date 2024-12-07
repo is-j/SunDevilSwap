@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ item.description }} - SunDevilSwap</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/item_detail.css' %}">
 </head>
 <body>
     <!-- NAV -->
@@ -26,19 +26,26 @@
 
     <!-- ITEM DETAILS -->
     <section class="item-details">
-        <div class="container">
-            <img src="{{ item.image }}" alt="{{ item.description }}" class="item-image-large">
-            <h1>{{ item.description }}</h1>
-            <p><strong>Price:</strong> ${{ item.price }}</p>
-            <p><strong>Condition:</strong> {{ item.condition }}</p>
-            <form method="POST" action="{% url 'add_to_cart' item.itemID %}">
-                {% csrf_token %}
-                <button type="submit" class="btn add-to-cart">Add to Cart</button>
-            </form>            
+        <h1 class="item-title">{{ item.description }}</h1>
+        <div class="details-container">
+            <div class="item-info">
+                <p><strong>Price:</strong> ${{ item.price }}</p>
+                <p><strong>Condition:</strong> {{ item.condition }}</p>
+                <p><strong>Category:</strong> 
+                    {% if item.cloth %}Clothes{% endif %}
+                    {% if item.equip %}Lab Equipment{% endif %}
+                    {% if item.text %}Textbooks{% endif %}
+                    {% if not item.cloth and not item.equip and not item.text %}Others{% endif %}
+                </p>
+                <p><strong>Details:</strong> {{ item.full_description }}</p>
+                <form method="POST" action="{% url 'add_to_cart' item.itemID %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn add-to-cart">Add to Cart</button>
+                </form>
+            </div>
         </div>
     </section>
     
-
     <!-- FOOTER -->
     <footer>
         <p>&copy; 2024 SunDevilSwap - An ASU Marketplace</p>

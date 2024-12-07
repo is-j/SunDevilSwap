@@ -8,6 +8,9 @@ from .models import Profile
 from django.contrib import messages
 from mainApp.models import Item, Cart
 from django.db.models import Sum
+from django.contrib.messages import get_messages
+
+
 
 # Create your views here.
 def start(request):
@@ -26,6 +29,9 @@ def index(request):
     return render(request, "main_page/main.html", {"first_name": request.user.first_name})
 
 def login_view(request):
+    storage = get_messages(request)
+    for _ in storage:
+        pass
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -40,6 +46,11 @@ def login_view(request):
 
 
 def signUp_view(request):
+
+    storage = get_messages(request)
+    for _ in storage:
+        pass
+
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -93,9 +104,38 @@ def sell(request):
         )
         item.save()
 
-        return HttpResponse('<h1>Item successfully listed!</h1><a href="/sell/">Go Back</a>')
+        messages.success(request, 'Your item has been listed successfully.')
 
     return render(request, 'bsPage/sell_now.html')
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
+@login_required
+def profile(request):
+    # Fetch the logged-in user's profile
+    profile = request.user.profile
+
+    if request.method == 'POST':
+
+        email = request.POST.get('email', profile.email)
+        address = request.POST.get('address', profile.address)
+        phone = request.POST.get('phone', profile.phone)
+        profile.email = email
+        profile.address = address
+        profile.phone = phone
+        profile.save()
+
+        user = request.user
+        user.email = email
+        user.save()
+
+
+        messages.success(request, "Your profile has been updated successfully!")
+        return redirect('profile')
+
+    return render(request, 'login/profile.html', {'profile': profile})
 
 def buy_now(request):
     category = request.GET.get('category')

@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
+<script>
+    function confirmSubmission(event) {
+        event.preventDefault();
+
+        const imageInput = document.getElementById('item-image');
+        if (!imageInput.files || imageInput.files.length === 0) {
+            alert('Please upload an image for your item.');
+            return;
+        }
+
+        const confirmation = confirm("Item has been successfully listed for sale!");
+        if (confirmation) {
+            document.getElementById('sell-form').submit(); 
+        }
+    }
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SunDevilSwap - Sell Now</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/sell_styles.css' %}">
+    <script>
+        function confirmSubmission(event) {
+            event.preventDefault(); 
+            const confirmation = confirm("Item has been successfully listed for sale!");
+            if (confirmation) {
+                document.getElementById('sell-form').submit(); 
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- NAV -->
@@ -27,7 +54,7 @@
     <section class="sell-now-section">
         <h1>Sell Your Items</h1>
         <p>Fill out the form below to list your item for sale:</p>
-        <form method="POST" action="/sell/" enctype="multipart/form-data">
+        <form id="sell-form" method="POST" action="/sell/" enctype="multipart/form-data" onsubmit="confirmSubmission(event)">
             {% csrf_token %}
             <div class="form-group">
                 <label for="item-name">Item Name:</label>
@@ -51,8 +78,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="item-image">Upload Image:</label>
-                <input type="file" id="item-image" name="item_image" accept="image/*">
+                <label for="item-condition">Condition:</label>
+                <textarea id="item-condition" name="item-condition" placeholder="Enter condition" required></textarea>
             </div>
             <button type="submit" class="btn">Submit</button>
         </form>

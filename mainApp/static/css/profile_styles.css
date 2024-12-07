@@ -1,0 +1,133 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #F9F6EF; /* Light background */
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #8C1D40; /* ASU Maroon */
+    color: #fff;
+    border-bottom: 3px solid #FFC627; /* ASU Gold */
+}
+
+.navbar .logo a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FFC627; /* ASU Gold */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar .logo a:hover {
+    color: #FFD75E; /* Lighter Gold */
+}
+
+.navbar .nav-links a {
+    margin-left: 20px;
+    color: #FFC627; /* ASU Gold */
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    background-color: #FFC627; /* ASU Gold */
+    color: #8C1D40; /* ASU Maroon */
+}
+
+/* Profile Section */
+.profile {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #fff; /* White background */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.profile h1 {
+    color: #8C1D40; /* ASU Maroon */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profile-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #F9F6EF; /* Light background */
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.profile-form .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #8C1D40; /* ASU Maroon */
+}
+
+.profile-form .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.profile-form .form-group input:focus {
+    outline: none;
+    border-color: #8C1D40; /* ASU Maroon */
+}
+
+.profile-form button {
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #8C1D40; /* ASU Maroon */
+    color: #fff; /* White */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.profile-form button:hover {
+    background-color: #A42A51; /* Lighter Maroon */
+}
+
+/* Footer */
+footer {
+    background-color: #8C1D40; /* ASU Maroon */
+    color: #FFC627; /* ASU Gold */
+    text-align: center;
+    padding: 20px 10px;
+}
+
+footer a {
+    color: #FFC627;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: #FFD75E; /* Lighter Gold */
+}
